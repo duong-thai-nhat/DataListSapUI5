@@ -1,0 +1,17 @@
+{
+  "generator-ui5-ts-app": {
+    "namespace": "sap.datalist.app",
+    "framework": "OpenUI5",
+    "frameworkVersion": "1.120.2",
+    "author": "",
+    "initrepo": true,
+    "tstypes": "@openui5/types",
+    "tstypesVersion": "1.120.2",
+    "appId": "sap.datalist.app",
+    "appURI": "sap/datalist/app",
+    "cdnDomain": "sdk.openui5.org",
+    "defaultTheme": "sap_horizon",
+    "gte11150": true,
+    "setupCompleted": true
+  }
+}
