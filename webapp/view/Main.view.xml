@@ -8,18 +8,39 @@
 		formatter: 'sap/datalist/app/model/formatter'
 	}">
 
-	<MessagePage
-		title="{i18n>appTitle}"
-		text="{i18n>appTitle}"
-		icon="sap-icon://accept"
-		id="page"
-		description="{i18n>appDescription}">
-		<buttons>
-			<Button
-				id="helloButton"
-				text="{formatter: 'formatter.formatValue', path: 'i18n>btnText'}"
-				press="sayHello" />
-		</buttons>
-	</MessagePage>
+	<Shell >
+        <Page showHeader="false" >
+            <subHeader>
+                <OverflowToolbar>
+                    <SearchField liveChange=".getUser" width="300px" />
+                    <ToolbarSpacer />
+                    <OverflowToolbarButton tooltip="Delete" text="Delete" press=".getUser" icon="sap-icon://delete"/>
+                    <OverflowToolbarButton tooltip="Edit" text="Edit" press=".onSelectionChange" icon="sap-icon://edit"/>
+                    <OverflowToolbarButton tooltip="Add" text="Add" icon="sap-icon://add"/>
+                </OverflowToolbar>
+            </subHeader>
+            <content>
+				<List
+					id="idList"
+					items="{data>/data}"
+					selectionChange=".onSelectionChange"
+					mode="SingleSelectLeft"
+					growing="true"
+					growingThreshold="50"
+					includeItemInSelection="true">
+					<infoToolbar>
+						<OverflowToolbar visible="false" id="idInfoToolbar">
+							<Label id="idFilterLabel" />
+						</OverflowToolbar>
+					</infoToolbar>
+					
+					<CustomListItem >
+						<Input value="{data>name}" editable="false"></Input>
+					</CustomListItem>
+				</List>
+			</content>
+
+        </Page>
+    </Shell>
 
 </mvc:View>
