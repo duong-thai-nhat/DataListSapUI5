@@ -11,6 +11,8 @@ import CustomListItem from "sap/m/CustomListItem";
  * @namespace sap.datalist.app.controller
  */
 export default class Main extends BaseController {
+    private selectItem :CustomListItem;
+
 	private oModel = new JSONModel({
         data:[]
     });
@@ -22,14 +24,12 @@ export default class Main extends BaseController {
     }
 
 	onSelectionChange (event: ListBase$SelectionChangeEvent){
-		
-		let selectItem = event.getParameter("listItem") as CustomListItem;
-		console.log(selectItem.getContent())
-		selectItem.getContent()[0].setProperty("editable", true);
+        if(this.selectItem) this.selectItem.getContent()[0].setProperty("editable", false);
+		this.selectItem = event.getParameter("listItem") as CustomListItem;
 	}
 
 	pressEdit (){
-		
+		this.selectItem.getContent()[0].setProperty("editable", true);
 	}
 
     async getAllData(){
@@ -39,6 +39,7 @@ export default class Main extends BaseController {
             this.oModel.setData({
                 data: [...oData]
             });
+            console.log(oData)
         } catch (error) {
             console.log(error)
         }

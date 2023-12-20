@@ -15,7 +15,7 @@
                     <SearchField liveChange=".getUser" width="300px" />
                     <ToolbarSpacer />
                     <OverflowToolbarButton tooltip="Delete" text="Delete" press=".getUser" icon="sap-icon://delete"/>
-                    <OverflowToolbarButton tooltip="Edit" text="Edit" press=".onSelectionChange" icon="sap-icon://edit"/>
+                    <OverflowToolbarButton tooltip="Edit" text="Edit" press=".pressEdit" icon="sap-icon://edit"/>
                     <OverflowToolbarButton tooltip="Add" text="Add" icon="sap-icon://add"/>
                 </OverflowToolbar>
             </subHeader>
@@ -35,7 +35,7 @@
 					</infoToolbar>
 					
 					<CustomListItem >
-						<Input value="{data>name}" editable="false"></Input>
+						<Input value="{data>name}" editable="false"/>
 					</CustomListItem>
 				</List>
 			</content>
